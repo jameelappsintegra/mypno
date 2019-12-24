@@ -1,4 +1,6 @@
-# Mario Plan
+# My PNO
+You need to install with theses commanad npm install or yarn install
+You need to run yarn start after install 
 
 ## Rules Firebase
 
