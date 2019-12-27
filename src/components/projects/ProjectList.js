@@ -1,9 +1,10 @@
-import React          from 'react'
+import React from 'react'
 import ProjectSummary from './ProjectSummary'
-import { Link }       from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const ProjectList = ({ projects }) => {
 	return (
+
 		<div className="project-list section">
 			{projects && projects.map(project => {
 				return (
@@ -16,4 +17,4 @@ const ProjectList = ({ projects }) => {
 	)
 }
 
-export default ProjectList
+export default ProjectList;

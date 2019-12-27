@@ -49,3 +49,28 @@ div.project-list div.card{
 	border-radius: 5px;
     box-shadow: 3px 3px 5px 6px #ccc!important;
 }
+.card-content img{
+	width: 75%;
+	height: 20vh;
+}
+.card .card-image img{
+	height: 200px;
+}
+.project-list.section{
+	padding: 2%;
+}
+.card .card-content{
+	padding: 2% 4%;
+}
+.card .card-content .card-title{
+	font-size: 1.3rem;
+    font-weight: 700;
+}
+.project-details {
+    padding: 1%;
+}
+@media (max-width:425px) and (min-width:319px){
+	.card .card-image{
+		padding: 0;
+	}
+}

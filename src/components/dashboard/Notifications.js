@@ -1,6 +1,6 @@
-import React from 'react'
-import moment from 'moment'
-import 'moment/locale/pt-br'
+import React from 'react';
+import moment from 'moment';
+import 'moment/locale/en-ie';
 
 const Notifications = ({ notifications }) => {
 	return (
@@ -11,7 +11,7 @@ const Notifications = ({ notifications }) => {
 					<ul className="online-users">
 						{notifications && notifications.map((notification, index) => {
 							return (
-								<li key={index} style={{ 'marginBottom': '15px'}}>
+								<li key={index} style={{ 'marginBottom': '15px' }}>
 									<p>{notification.user}</p>
 									<p>{notification.content}</p>
 									<p>{moment(notification.createdAt.toDate()).calendar()}</p>
@@ -25,4 +25,4 @@ const Notifications = ({ notifications }) => {
 	)
 }
 
-export default Notifications
+export default Notifications;

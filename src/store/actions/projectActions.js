@@ -1,25 +1,20 @@
 export const createProject = (project) => {
-	return (dispatch, getState, { getFirebase, getFirestore }) => {
+	return (dispatch, getState, { getFirebase, getFirestore, }) => {
 		const firestore = getFirestore()
-		const profile = getState().firebase.profile
-		const authorId = getState().firebase.auth.uid
-		console.log('profile', profile);
-		console.log('authorId', authorId);
+		const profile = getState().firebase.auth;
+		const displayName = profile.displayName.split(' ');
 
 		firestore.collection('projects').add({
 			...project,
-			// authorFirstName: profile.firstName,
-			// authorLastName: profile.lastName,
-			// authorId: authorId,
-			createdAt: new Date()
-		}).then(
-			() => {
-				dispatch({ type: 'CREATE_PROJECT', project })
-			}
-		).catch(
-			(err) => {
-				dispatch({ type: 'CREATE_PROJECT_ERROR', err })
-			}
-		)
+			authorFirstName: displayName[0],
+			authorLastName: displayName[displayName.length - 1],
+			authorId: profile.uid,
+			createdAt: new Date(),
+		}).then(() => {
+			dispatch({ type: 'CREATE_PROJECT', project });
+		}).catch((err) => {
+			dispatch({ type: 'CREATE_PROJECT_ERROR', err });
+		});
+
 	}
 }
