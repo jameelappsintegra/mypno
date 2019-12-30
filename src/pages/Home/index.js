@@ -1,19 +1,25 @@
-import React, { Component, Fragment } from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Navbar from '../../components/layout/Navbar';
+import Dashboard from '../../components/dashboard/Dashboard';
+import ProjectDetails from '../../components/projects/ProjectDetails';
+import SignIn from '../../components/auth/SignIn';
+import SignUp from '../../components/auth/SignUp';
+import CreateProject from '../../components/projects/CreateProject';
+import { Grid, withStyles } from '@material-ui/core';
+import { navStyles } from '../../styles/styles';
 
-import Navbar from '../../components/layout/Navbar'
-import Dashboard from '../../components/dashboard/Dashboard'
-import ProjectDetails from '../../components/projects/ProjectDetails'
-import SignIn from '../../components/auth/SignIn'
-import SignUp from '../../components/auth/SignUp'
-import CreateProject from '../../components/projects/CreateProject'
-
-class Home extends Component {
-	render() {
-		return (
-			<BrowserRouter>
-				<Fragment>
+const Home = ({ classes }) => {
+	return (
+		<BrowserRouter>
+			<Grid container
+				direction="column"
+				justify="center"
+				alignItems="center" >
+				<Grid container item xs={12} className={classes.topNav}>
 					<Navbar />
+				</Grid>
+				<Grid container item xs={12}>
 					<Switch>
 						<Route exact path='/' component={Dashboard} />
 						<Route path='/project/:id' component={ProjectDetails} />
@@ -21,10 +27,10 @@ class Home extends Component {
 						<Route path='/signup' component={SignUp} />
 						<Route path='/create' component={CreateProject} />
 					</Switch>
-				</Fragment>
-			</BrowserRouter>
-		)
-	}
+				</Grid>
+			</Grid>
+		</BrowserRouter>
+	)
 }
 
-export default Home
+export default withStyles(navStyles)(Home)

@@ -6,7 +6,7 @@ const ProjectSummary = ({ project }) => {
 	return (
 		<React.Fragment>
 			<div className="row card z-depth-0 project-summary">
-				<div class="card-image col m6">
+				<div className="card-image col m6">
 					{
 						project.downloadURLs && project.downloadURLs.slice(0, 1).map(image => {
 							return (
@@ -20,7 +20,6 @@ const ProjectSummary = ({ project }) => {
 				<div className="card-content grey-text text-darken-3 col m6">
 					<span className="card-title ">{project.title}</span>
 					<p>Posted by {project.authorFirstName}</p>
-
 					<p className="grey-text">{moment(project.createdAt.toDate()).calendar()}</p>
 				</div>
 			</div>

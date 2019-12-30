@@ -74,3 +74,11 @@ div.project-list div.card{
 		padding: 0;
 	}
 }
+
+ul li a {
+	color: #fff;
+}
+div.card-image {
+    padding: 0!important;
+    margin: 0;
+}

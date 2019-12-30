@@ -17,4 +17,15 @@ var firebaseConfig = {
 	appId: "1:418236773646:web:7283dd1907bcb1df58935f"
 };
 
+// var firebaseConfig = {
+// 	apiKey: "AIzaSyAyufxAVyAm-ZuE232odnVLs0ng4nzv-SI",
+// 	authDomain: "mypno-df5ac.firebaseapp.com",
+// 	databaseURL: "https://mypno-df5ac.firebaseio.com",
+// 	projectId: "mypno-df5ac",
+// 	storageBucket: "mypno-df5ac.appspot.com",
+// 	messagingSenderId: "377789443251",
+// 	appId: "1:377789443251:web:36b70af4718644a50694c6",
+// 	measurementId: "G-TVFDB6TREZ"
+// };
+
 export default firebaseConfig;
