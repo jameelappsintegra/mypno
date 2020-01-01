@@ -8,9 +8,7 @@ import { compose } from 'redux'
 
 class Dashboard extends Component {
 	render() {
-		const { projects, notifications,
-			// auth
-		} = this.props
+		const { projects, notifications } = this.props
 		// if (!auth.uid) return <Redirect to="/signin" />
 		return (
 			<div className="dashboard container">
@@ -39,6 +37,6 @@ export default compose(
 	connect(mapStateToProps),
 	firestoreConnect([
 		{ collection: "notifications", orderBy: [["createdAt", "desc"]] },
-		{ collection: "projects", orderBy: [["createdAt", "desc"]] }
+		{ collection: "projects", orderBy: [["createdAt", "desc"]] },
 	])
 )(Dashboard);

@@ -4,8 +4,10 @@ import { createProject } from '../../store/actions/projectActions';
 import { Redirect } from 'react-router-dom';
 import firebase from "firebase";
 import FileUploader from "react-firebase-file-uploader";
+import { Typography, Select, MenuItem } from '@material-ui/core';
 
 class CreateProject extends Component {
+
 	state = {
 		title: '',
 		content: '',
@@ -76,11 +78,8 @@ class CreateProject extends Component {
 		return (
 			<div className="container">
 				<form className="white" onSubmit={this.handleSubmit}>
-					<div className="row">
-						<h5 className="grey-text text-darken-3">
-							Create Project
-					</h5>
-					</div>
+					<Typography variant='h5'>Create Article</Typography>
+
 					<div className="input-field">
 						<label htmlFor="title">Title</label>
 						<input type="text" id="title" onChange={this.handleChange} />
@@ -93,8 +92,18 @@ class CreateProject extends Component {
 						<label htmlFor="youtube">Youtube link</label>
 						<input type="text" id="youtube" onChange={this.handleYoutubeLink} />
 					</div>
+					<label>Category</label>
 					<div className="input-field">
-						{/* <input type="file" onChange={this.handleImageChange} /> */}
+						<Select
+							labelId="demo-simple-select-label"
+							id="demo-simple-select"
+						>
+							<MenuItem value={10}>Ten</MenuItem>
+							<MenuItem value={20}>Twenty</MenuItem>
+							<MenuItem value={30}>Thirty</MenuItem>
+						</Select>
+					</div>
+					<div className="input-field">
 						<FileUploader
 							accept="image/*"
 							name="image-uploader-multiple"

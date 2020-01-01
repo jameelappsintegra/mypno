@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Grid } from '@material-ui/core';
 import SignedInLinks from './SignedInLinks';
 import SignedOutLinks from './SignedOutLinks';
-import MenuIcon from '@material-ui/icons/Menu';
+import Humburger from './Humburger';
 
 const Navbar = (props) => {
 	const { auth, profile } = props
@@ -15,7 +15,7 @@ const Navbar = (props) => {
 			</Grid>
 			<Grid item xs={8} md={8} sm={8}>
 				{auth.uid ? <SignedInLinks profile={profile} /> : <SignedOutLinks />}
-				<MenuIcon fontSize="large" />
+				<Humburger />
 			</Grid>
 		</Grid>
 	)

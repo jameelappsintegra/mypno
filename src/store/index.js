@@ -1,13 +1,9 @@
-import {
-	createStore,
-	applyMiddleware,
-	compose
-} from 'redux'
-import reducers                            from './reducers'
-import thunk 		                       from 'redux-thunk'
-import { reduxFirestore, getFirestore }    from 'redux-firestore'
-import { reactReduxFirebase, getFirebase } from 'react-redux-firebase'
-import firebase                            from '../firebase'
+import { createStore, applyMiddleware, compose } from 'redux';
+import reducers from './reducers';
+import thunk from 'redux-thunk';
+import { reduxFirestore, getFirestore } from 'redux-firestore';
+import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
+import firebase from '../firebase';
 
 const store = createStore(
 	reducers,
@@ -27,4 +23,4 @@ const store = createStore(
 	)
 );
 
-export default store
+export default store;

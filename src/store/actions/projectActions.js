@@ -2,7 +2,6 @@ export const createProject = (project) => {
 	return (dispatch, getState, { getFirebase, getFirestore, }) => {
 		const firestore = getFirestore()
 		const profile = getState().firebase.auth;
-		console.log('displayname', profile);
 
 		const displayName = profile.displayName === null ? profile.email : profile.displayName.slice(' ');
 
