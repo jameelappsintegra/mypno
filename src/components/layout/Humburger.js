@@ -19,7 +19,7 @@ const useStyles = makeStyles({
 });
 
 const Humburger = (props) => {
-    const { newsCategory } = props;
+    const { newsCategory, auth } = props;
     console.log('props', props.newsCategory);
     console.log('newscat', newsCategory)
 
@@ -37,9 +37,34 @@ const Humburger = (props) => {
         }
         setState({ ...state, [side]: open });
     };
-
+    const SignedOutList = () => {
+        return (
+            <React.Fragment>
+                {/* <NavLink to="/signin">Login</NavLink> */}
+                <ListItem onClick={props.signOut} href="/signin">
+                    <ListItemIcon><MailIcon /></ListItemIcon>
+                    <ListItemText primary={'Login'} />
+                </ListItem>
+            </React.Fragment>
+        )
+    };
+    const SignedInList = () => {
+        return (
+            <React.Fragment>
+                <ListItem href="/create">
+                    <ListItemIcon><InboxIcon /></ListItemIcon>
+                    <ListItemText primary={'Create Post'} />
+                </ListItem>
+                <ListItem to='/'>
+                    <ListItemIcon><InboxIcon /></ListItemIcon>
+                    {/* <ListItemText primary={props.profile.initials} /> */}
+                    <ListItemText primary={'Log out'} />
+                </ListItem>
+            </React.Fragment>
+        )
+    };
     const sideList = side => (
-        <div
+        <Grid
             className={classes.list}
             role="presentation"
             onClick={toggleDrawer(side, false)}
@@ -55,54 +80,28 @@ const Humburger = (props) => {
             </List>
             <Divider />
             <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
+                {
+                    auth.uid ?
+                        <SignedInList />
+                        :
+                        <SignedOutList />
+                }
             </List>
-        </div>
-    );
-
-    const fullList = side => (
-        <div
-            className={classes.fullList}
-            role="presentation"
-            onClick={toggleDrawer(side, false)}
-            onKeyDown={toggleDrawer(side, false)}
-        >
-            <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
-            <Divider />
-            <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
-        </div>
+        </Grid>
     );
 
     //----------------
     return (
-        <Grid container>
-            <Grid item xs={8} md={8} sm={8}>
-                <Button onClick={toggleDrawer('right', true)}>
-                    <MenuIcon fontSize="large" />
-                </Button>
-                <Drawer anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
-                    {sideList('right')}
-                </Drawer>
-            </Grid>
+        <Grid container
+            direction="row"
+            justify="flex-end"
+            alignItems="center">
+            <Button onClick={toggleDrawer('right', true)}>
+                <MenuIcon fontSize="large" />
+            </Button>
+            <Drawer anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>
+                {sideList('right')}
+            </Drawer>
         </Grid>
 
     )

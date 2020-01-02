@@ -46,8 +46,12 @@ div nav.nav-wrapper.grey {
 }
 
 div.project-list div.card{
-	border-radius: 5px;
-    box-shadow: 3px 3px 5px 6px #ccc!important;
+	border-radius: 10px;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	margin:15px 0;
+}
+.card .card-image img{
+	border-radius: 10px 10px 0 0;
 }
 .card-content img{
 	width: 75%;
