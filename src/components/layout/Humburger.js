@@ -16,14 +16,13 @@ const useStyles = makeStyles({
     fullList: {
         width: 'auto',
     },
+    menu: {
+        color: '#444343',
+    }
 });
 
 const Humburger = (props) => {
     const { newsCategory, auth } = props;
-    console.log('props', props.newsCategory);
-    console.log('newscat', newsCategory)
-
-    //--------------
     const classes = useStyles();
     const [state, setState] = React.useState({
         top: false,
@@ -31,12 +30,30 @@ const Humburger = (props) => {
         bottom: false,
         right: false,
     });
+    console.log('props', props.profile);
+
+    const NewsCategory = () => {
+        return (
+            newsCategory && newsCategory.map((item, i) => {
+                return (
+                    item.categoryName ?
+                        <ListItem button key={i}>
+                            <ListItemIcon><InboxIcon /></ListItemIcon>
+                            <ListItemText primary={item.categoryName} />
+                        </ListItem>
+                        : ''
+                )
+            })
+        )
+    }
+    // //--------------
     const toggleDrawer = (side, open) => event => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
         }
         setState({ ...state, [side]: open });
     };
+
     const SignedOutList = () => {
         return (
             <React.Fragment>
@@ -70,22 +87,10 @@ const Humburger = (props) => {
             onClick={toggleDrawer(side, false)}
             onKeyDown={toggleDrawer(side, false)}
         >
-            <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
+            <NewsCategory />
             <Divider />
             <List>
-                {
-                    auth.uid ?
-                        <SignedInList />
-                        :
-                        <SignedOutList />
-                }
+                {auth.uid ? <SignedInList /> : <SignedOutList />}
             </List>
         </Grid>
     );
@@ -96,7 +101,7 @@ const Humburger = (props) => {
             direction="row"
             justify="flex-end"
             alignItems="center">
-            <Button onClick={toggleDrawer('right', true)}>
+            <Button onClick={toggleDrawer('right', true)} className={classes.menu}>
                 <MenuIcon fontSize="large" />
             </Button>
             <Drawer anchor="right" open={state.right} onClose={toggleDrawer('right', false)}>

@@ -21,21 +21,26 @@ const ProjectDetails = (props) => {
 						{project.title}
 					</span>
 					{
-						project.downloadURLs && project.downloadURLs.map(image => {
+						project.downloadURLs && project.downloadURLs.map((image, i) => {
 							return (
-								<img src={image} alt={project.filename} />
+								<img src={image} key={i} alt={project.filename} />
 							)
 						}
 						)
 					}
 					<p>{project.content}</p>
-				</div>
-				<div className="card-content">
-					<Link to="/">
-						<button className="btn pink lighten-1 z-depth-0">
-							Back
+					<div className="card-btn">
+						<Link to="/">
+							<button className="btn pink lighten-1 z-depth-0">
+								Back
 							</button>
-					</Link>
+						</Link>
+						<Link to="/">
+							<button className="btn pink lighten-1 z-depth-0">
+								Edit
+							</button>
+						</Link>
+					</div>
 				</div>
 				<div className="card-action grey lighten-4 grey-text">
 					<div>

@@ -8,6 +8,7 @@ import SignUp from '../../components/auth/SignUp';
 import CreateProject from '../../components/projects/CreateProject';
 import { Grid, withStyles } from '@material-ui/core';
 import { navStyles } from '../../styles/styles';
+import Footer from '../../components/footer/Footer';
 
 const Home = ({ classes }) => {
 	return (
@@ -27,6 +28,9 @@ const Home = ({ classes }) => {
 						<Route path='/signup' component={SignUp} />
 						<Route path='/create' component={CreateProject} />
 					</Switch>
+				</Grid>
+				<Grid item xs={12}>
+					<Footer />
 				</Grid>
 			</Grid>
 		</BrowserRouter>
