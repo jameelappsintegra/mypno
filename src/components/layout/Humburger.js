@@ -17,7 +17,7 @@ const useStyles = makeStyles({
         width: 'auto',
     },
     menu: {
-        color: '#444343',
+        color: '#fff',
     }
 });
 

@@ -5,6 +5,7 @@ import { Grid } from '@material-ui/core';
 // import SignedInLinks from './SignedInLinks';
 // import SignedOutLinks from './SignedOutLinks';
 import Humburger from './Humburger';
+import Applogo from '../../images/mypno.svg';
 
 const Navbar = (props) => {
 	// const { auth, profile } = props
@@ -14,7 +15,9 @@ const Navbar = (props) => {
 			justify="space-between"
 			alignItems="center">
 			<Grid item xs={4} md={4} sm={4}>
-				<Link to="/" className="brand-logo">Mypno</Link>
+				<Link to="/" className="brand-logo">
+					<img src={Applogo} alt='mypno' />
+				</Link>
 			</Grid>
 			<Grid item xs={8} md={8} sm={8}>
 				{/* {auth.uid ? <SignedInLinks profile={profile} /> : <SignedOutLinks />} */}

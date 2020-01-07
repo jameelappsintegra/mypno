@@ -13,6 +13,10 @@ export const ProjectSummaryStyles = theme => ({
 
 export const FooterStyles = theme => ({
     footerMain: {
+        color: '#fff',
         background: '#cdcdcd'
+    },
+    footerText: {
+        fontSize: '0.8rem'
     }
 })

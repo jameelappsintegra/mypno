@@ -9,7 +9,7 @@ import 'moment/locale/en-ie';
 
 const ProjectDetails = (props) => {
 
-	const { project,
+	const { project, auth
 		// auth
 	} = props;
 	// if (!auth.uid) return <Redirect to='/signin' />
@@ -35,11 +35,14 @@ const ProjectDetails = (props) => {
 								Back
 							</button>
 						</Link>
-						<Link to="/">
-							<button className="btn pink lighten-1 z-depth-0">
-								Edit
+						{auth.uid ?
+							<Link to="/">
+								<button className="btn pink lighten-1 z-depth-0">
+									Edit
 							</button>
-						</Link>
+							</Link>
+							: ''
+						}
 					</div>
 				</div>
 				<div className="card-action grey lighten-4 grey-text">

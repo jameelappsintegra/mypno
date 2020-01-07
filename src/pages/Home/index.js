@@ -29,7 +29,7 @@ const Home = ({ classes }) => {
 						<Route path='/create' component={CreateProject} />
 					</Switch>
 				</Grid>
-				<Grid item xs={12}>
+				<Grid container item xs={12}>
 					<Footer />
 				</Grid>
 			</Grid>
