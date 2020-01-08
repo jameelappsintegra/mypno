@@ -18,6 +18,9 @@ const useStyles = makeStyles({
     },
     menu: {
         color: '#fff',
+        '&:hover': {
+            background: 'transparent'
+        }
     }
 });
 
