@@ -21,7 +21,7 @@ const ProjectSummary = ({ project, classes }) => {
 				</div>
 				<div className="card-content grey-text text-darken-3 col m6">
 					<span className="card-title ">{project.title}</span>
-					<span className={classes.tag}>Parangipettai</span>
+					<span className={classes.tag}>{project.category}</span>
 					<p>Posted by {project.authorFirstName}</p>
 					<p className="grey-text">{moment(project.createdAt.toDate()).calendar()}</p>
 				</div>
